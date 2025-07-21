@@ -60,6 +60,8 @@ services:
     hostname: postgres
     networks: ['demo']
     #network_mode: bridge
+    ports:
+    - 5432:5432
     restart: unless-stopped
     environment:
       - POSTGRES_USER

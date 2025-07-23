@@ -166,3 +166,4 @@ services:
     image: ollama/ollama:rocm
     depends_on:
      - ollama-gpu-amd
+     

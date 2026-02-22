@@ -38,6 +38,9 @@ x-ollama: &service-ollama
     - 11434:11434
   volumes:
     - ollama_storage:/root/.ollama
+  env_file:
+    - path: .env
+      required: true
 
 x-init-ollama: &init-ollama
   image: ollama/ollama:latest
@@ -67,6 +70,9 @@ services:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
       - POSTGRES_DB
+    env_file:
+    - path: .env
+      required: true
     volumes:
       - postgres_storage:/var/lib/postgresql/data
     healthcheck:
@@ -124,6 +130,9 @@ services:
       - 6333:6333
     volumes:
       - qdrant_storage:/qdrant/storage
+    env_file:
+    - path: .env
+      required: true
 
   ollama-cpu:
     profiles: ["cpu"]

@@ -152,7 +152,7 @@ services:
   ollama-gpu-amd:
     profiles: ["gpu-amd"]
     <<: *service-ollama
-    image: ollama/ollama:rocm
+    image: ghcr.io/rjmalagon/ollama-linux-amd-apu:optm-latest
     devices:
       - "/dev/kfd"
       - "/dev/dri"
@@ -172,7 +172,7 @@ services:
   ollama-pull-llama-gpu-amd:
     profiles: [gpu-amd]
     <<: *init-ollama
-    image: ollama/ollama:rocm
+    image: ghcr.io/rjmalagon/ollama-linux-amd-apu:optm-latest
     depends_on:
      - ollama-gpu-amd
      
